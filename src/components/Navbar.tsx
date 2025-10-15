@@ -57,6 +57,19 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
+                {/* Hover underline animation */}
+                <motion.div
+                  className="absolute bottom-0 left-0 h-0.5 bg-[#E50914]"
+                  initial={{ width: "0%" }}
+                  whileHover={{ 
+                    width: "100%",
+                    boxShadow: "0 0 8px rgba(229, 9, 20, 0.8)",
+                    transition: { duration: 0.4, ease: "easeInOut" }
+                  }}
+                  style={{
+                    boxShadow: "0 0 0px rgba(229, 9, 20, 0)"
+                  }}
+                />
               </motion.button>
             ))}
           </div>
