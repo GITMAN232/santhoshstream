@@ -43,13 +43,40 @@ export default function SkillsSection() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: catIndex * 0.1 + index * 0.05 }}
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      transition: { duration: 0.3 }
+                    }}
                     className="netflix-card flex-shrink-0"
                   >
                     <div className="w-48 rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_20px_rgba(229,9,20,0.5)] transition-all duration-300">
-                      <div className="aspect-square bg-gradient-to-br from-[#E50914] to-[#B20710] flex items-center justify-center">
-                        <div className="text-7xl">{skill.icon}</div>
-                      </div>
+                      <motion.div 
+                        className="aspect-square bg-gradient-to-br from-[#E50914] to-[#B20710] flex items-center justify-center relative overflow-hidden"
+                        whileHover={{
+                          background: "linear-gradient(to bottom right, #ff0a16, #E50914)",
+                        }}
+                      >
+                        <motion.div 
+                          className="text-7xl"
+                          whileHover={{ 
+                            scale: 1.2,
+                            rotate: [0, -5, 5, 0],
+                            transition: { duration: 0.5 }
+                          }}
+                        >
+                          {skill.icon}
+                        </motion.div>
+                        
+                        {/* Shine effect on hover */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                          initial={{ x: "-100%" }}
+                          whileHover={{ 
+                            x: "100%",
+                            transition: { duration: 0.6, ease: "easeInOut" }
+                          }}
+                        />
+                      </motion.div>
                       <div className="bg-[#141414] p-3">
                         <h4 className="text-sm font-semibold text-white text-center truncate">
                           {skill.name}
