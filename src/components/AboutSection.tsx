@@ -15,9 +15,13 @@ export default function AboutSection() {
           <div className="relative flex flex-col md:flex-row items-center gap-8 p-8 md:p-16">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="w-48 h-48 rounded-full bg-gradient-to-br from-[#E50914] to-[#B20710] flex items-center justify-center text-8xl shadow-[0_0_40px_rgba(229,9,20,0.4)] transition-all duration-300"
+              className="w-48 h-48 rounded-full bg-gradient-to-br from-[#E50914] to-[#B20710] flex items-center justify-center overflow-hidden shadow-[0_0_40px_rgba(229,9,20,0.4)] transition-all duration-300"
             >
-              👨‍💻
+              <img 
+                src="https://harmless-tapir-303.convex.cloud/api/storage/f2395d5d-c930-4510-a25e-eb50ed7336ca" 
+                alt="Santhosh Avatar"
+                className="w-full h-full object-cover"
+              />
             </motion.div>
 
             <div className="flex-1 text-white text-center md:text-left">
