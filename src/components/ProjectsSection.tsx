@@ -96,29 +96,30 @@ export default function ProjectsSection() {
               </div>
 
               {/* Project Details */}
-              <div className="p-8">
+              <div className="p-8 bg-gradient-to-b from-[#141414] to-[#0a0a0a]">
                 <DialogHeader className="mb-6">
-                  <DialogTitle className="text-3xl font-bold text-[#E50914] mb-2">
+                  <DialogTitle className="text-3xl md:text-4xl font-bold text-[#E50914] mb-3 tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                     {currentProject.title.toUpperCase()}
                   </DialogTitle>
-                  <DialogDescription className="text-[#B3B3B3] text-lg leading-relaxed">
+                  <DialogDescription className="text-[#B3B3B3] text-base md:text-lg leading-relaxed">
                     {currentProject.description}
                   </DialogDescription>
                 </DialogHeader>
 
                 {/* Tools Used */}
-                <div className="mb-6">
-                  <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
+                <div className="mb-8">
+                  <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-widest opacity-70">
                     Technologies Used
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {currentProject.tools.map((tool) => (
-                      <span
+                      <motion.span
                         key={tool}
-                        className="px-3 py-1 bg-[#2a2a2a] text-[#B3B3B3] font-semibold text-sm rounded-full"
+                        whileHover={{ scale: 1.05, backgroundColor: "#E50914" }}
+                        className="px-4 py-2 bg-[#2a2a2a] text-[#B3B3B3] hover:text-white font-semibold text-sm rounded-full transition-colors duration-300 cursor-default"
                       >
                         {tool}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>

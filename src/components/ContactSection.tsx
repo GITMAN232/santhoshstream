@@ -91,11 +91,23 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="bg-[#2a2a2a] rounded-lg p-8 md:p-12 shadow-2xl"
+          className="bg-gradient-to-br from-[#2a2a2a] via-[#252525] to-[#1f1f1f] rounded-xl p-8 md:p-12 shadow-2xl border border-[#3a3a3a] hover:border-[#E50914]/30 transition-all duration-500"
         >
-          <div className="flex items-center gap-4 mb-8">
-            <MessageSquare className="w-10 h-10 text-[#E50914]" />
-            <p className="text-xl md:text-2xl text-white font-semibold">
+          <div className="flex items-center gap-4 mb-10">
+            <motion.div
+              animate={{ 
+                rotate: [0, -5, 5, -5, 0],
+                scale: [1, 1.1, 1]
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <MessageSquare className="w-12 h-12 text-[#E50914]" />
+            </motion.div>
+            <p className="text-xl md:text-2xl text-white font-bold tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               Got a project in mind? Let's make it happen!
             </p>
           </div>
@@ -133,13 +145,15 @@ export default function ContactSection() {
               />
             </div>
 
-            <Button
-              type="submit"
-              className="w-full h-14 bg-[#E50914] hover:bg-[#ff0a16] text-white font-bold text-lg rounded-lg shadow-lg hover:shadow-[0_0_20px_rgba(229,9,20,0.6)] transition-all"
-            >
-              <Send className="mr-2" />
-              SEND MESSAGE
-            </Button>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Button
+                type="submit"
+                className="w-full h-16 bg-gradient-to-r from-[#E50914] to-[#ff0a16] hover:from-[#ff0a16] hover:to-[#E50914] text-white font-bold text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_rgba(229,9,20,0.8)] transition-all duration-300"
+              >
+                <Send className="mr-3 w-5 h-5" />
+                SEND MESSAGE
+              </Button>
+            </motion.div>
           </form>
         </motion.div>
       </div>

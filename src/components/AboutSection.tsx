@@ -15,13 +15,13 @@ export default function AboutSection() {
           <div className="relative flex flex-col md:flex-row items-center gap-8 p-8 md:p-16">
             <motion.div
               whileHover={{ 
-                scale: 1.08,
-                rotate: [0, -2, 2, -2, 0],
-                transition: { duration: 0.6 }
+                scale: 1.12,
+                rotate: [0, -3, 3, -3, 0],
+                transition: { duration: 0.6, ease: "easeInOut" }
               }}
-              className="w-48 h-48 rounded-full bg-gradient-to-br from-[#E50914] via-[#ff1744] to-[#B20710] flex items-center justify-center overflow-hidden shadow-[0_0_50px_rgba(229,9,20,0.5),0_0_100px_rgba(0,255,255,0.3)] transition-all duration-300 border-4 border-[#00ffff]/30 hover:border-[#00ffff] relative"
+              className="w-56 h-56 rounded-full bg-gradient-to-br from-[#E50914] via-[#ff1744] to-[#B20710] flex items-center justify-center overflow-hidden shadow-[0_0_60px_rgba(229,9,20,0.6),0_0_120px_rgba(0,255,255,0.4),inset_0_0_40px_rgba(255,255,255,0.1)] transition-all duration-500 border-4 border-[#00ffff]/40 hover:border-[#00ffff] relative"
               style={{
-                filter: "drop-shadow(0 0 15px rgba(0, 255, 255, 0.4))"
+                filter: "drop-shadow(0 0 20px rgba(0, 255, 255, 0.5))"
               }}
             >
               <img 
@@ -29,20 +29,32 @@ export default function AboutSection() {
                 alt="Santhosh Avatar"
                 className="w-full h-full object-cover"
                 style={{
-                  filter: "contrast(1.1) saturate(1.2)"
+                  filter: "contrast(1.15) saturate(1.3) brightness(1.05)"
                 }}
               />
               {/* Anime-style glow overlay */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#00ffff]/10 to-transparent"
+                className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#00ffff]/15 to-transparent"
                 animate={{
-                  opacity: [0.3, 0.6, 0.3],
+                  opacity: [0.4, 0.7, 0.4],
                   rotate: [0, 360]
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 3.5,
                   repeat: Infinity,
                   ease: "linear"
+                }}
+              />
+              {/* Additional inner glow */}
+              <motion.div
+                className="absolute inset-4 rounded-full bg-gradient-to-br from-[#E50914]/20 to-transparent"
+                animate={{
+                  opacity: [0.5, 0.8, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
                 }}
               />
             </motion.div>
