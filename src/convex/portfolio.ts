@@ -92,3 +92,17 @@ export const updateSkill = mutation({
     return await ctx.db.patch(id, updates);
   },
 });
+
+export const updateMultipleSkills = mutation({
+  args: {
+    updates: v.array(v.object({
+      id: v.id("skills"),
+      icon: v.string(),
+    })),
+  },
+  handler: async (ctx, args) => {
+    for (const update of args.updates) {
+      await ctx.db.patch(update.id, { icon: update.icon });
+    }
+  },
+});
