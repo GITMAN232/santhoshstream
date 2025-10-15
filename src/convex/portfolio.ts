@@ -78,3 +78,17 @@ export const addDesign = mutation({
     return await ctx.db.insert("designs", args);
   },
 });
+
+export const updateSkill = mutation({
+  args: {
+    id: v.id("skills"),
+    name: v.optional(v.string()),
+    category: v.optional(v.string()),
+    rating: v.optional(v.number()),
+    icon: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    const { id, ...updates } = args;
+    return await ctx.db.patch(id, updates);
+  },
+});

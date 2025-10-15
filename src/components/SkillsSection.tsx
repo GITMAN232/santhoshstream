@@ -57,14 +57,22 @@ export default function SkillsSection() {
                         }}
                       >
                         <motion.div 
-                          className="text-7xl"
+                          className="text-7xl flex items-center justify-center w-full h-full p-4"
                           whileHover={{ 
                             scale: 1.2,
                             rotate: [0, -5, 5, 0],
                             transition: { duration: 0.5 }
                           }}
                         >
-                          {skill.icon}
+                          {skill.icon.startsWith('http') ? (
+                            <img 
+                              src={skill.icon} 
+                              alt={skill.name}
+                              className="w-full h-full object-contain rounded-full"
+                            />
+                          ) : (
+                            skill.icon
+                          )}
                         </motion.div>
                         
                         {/* Shine effect on hover */}
