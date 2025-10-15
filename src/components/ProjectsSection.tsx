@@ -46,20 +46,21 @@ export default function ProjectsSection() {
               transition={{ delay: index * 0.15 }}
               whileHover={{ scale: 1.05 }}
               onClick={() => setSelectedProject(project._id)}
-              className="netflix-card relative w-80 rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(229,9,20,0.6)] transition-all duration-300 cursor-pointer"
+              className="netflix-card flex-shrink-0 cursor-pointer"
             >
-              <div className="aspect-video overflow-hidden bg-[#2a2a2a]">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="p-4 bg-[#2a2a2a]">
-                <h3 className="text-lg font-bold text-white">
-                  {project.title.toUpperCase()}
-                </h3>
+              <div className="w-72 rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(229,9,20,0.6)] transition-all duration-300">
+                <div className="aspect-video overflow-hidden bg-[#2a2a2a]">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="bg-[#141414] p-3">
+                  <h3 className="text-sm font-bold text-white truncate">
+                    {project.title}
+                  </h3>
+                </div>
               </div>
             </motion.div>
           ))}

@@ -30,7 +30,7 @@ export default function SkillsSection() {
 
         {categories.map((category, catIndex) => (
           <div key={category} className="mb-12">
-            <h3 className="text-xl md:text-2xl font-semibold text-[#E50914] mb-4 px-4">
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-4 px-4">
               {category.toUpperCase()}
             </h3>
 
@@ -43,25 +43,29 @@ export default function SkillsSection() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: catIndex * 0.1 + index * 0.05 }}
-                    whileHover={{ scale: 1.1 }}
-                    className="netflix-card w-48 bg-[#2a2a2a] rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_20px_rgba(229,9,20,0.5)] transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    className="netflix-card flex-shrink-0"
                   >
-                    <div className="p-6 flex flex-col items-center">
-                      <div className="text-6xl mb-4">{skill.icon}</div>
-                      <h4 className="text-lg font-bold text-white text-center mb-2">
-                        {skill.name.toUpperCase()}
-                      </h4>
-                      <div className="flex gap-1">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <span
-                            key={i}
-                            className={`text-xl ${
-                              i < skill.rating ? "text-[#E50914]" : "text-gray-600"
-                            }`}
-                          >
-                            ★
-                          </span>
-                        ))}
+                    <div className="w-48 rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_20px_rgba(229,9,20,0.5)] transition-all duration-300">
+                      <div className="aspect-square bg-gradient-to-br from-[#E50914] to-[#B20710] flex items-center justify-center">
+                        <div className="text-7xl">{skill.icon}</div>
+                      </div>
+                      <div className="bg-[#141414] p-3">
+                        <h4 className="text-sm font-semibold text-white text-center truncate">
+                          {skill.name}
+                        </h4>
+                        <div className="flex justify-center gap-0.5 mt-1">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <span
+                              key={i}
+                              className={`text-xs ${
+                                i < skill.rating ? "text-[#E50914]" : "text-gray-600"
+                              }`}
+                            >
+                              ★
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </motion.div>

@@ -33,19 +33,23 @@ export default function HobbiesSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.08 }}
-              className="netflix-card w-64 bg-[#2a2a2a] rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_25px_rgba(229,9,20,0.6)] transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              className="netflix-card flex-shrink-0"
             >
-              <div className="p-8">
-                <div className="text-7xl mb-4 text-center">{hobby.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3 text-center">
-                  {hobby.name.toUpperCase()}
-                </h3>
-                <p className="text-[#B3B3B3] text-sm leading-relaxed text-center mb-4">
-                  {hobby.description}
-                </p>
-                <div className="inline-block px-3 py-1 bg-[#E50914] text-white font-semibold text-xs rounded">
-                  {hobby.category.toUpperCase()}
+              <div className="w-56 rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_25px_rgba(229,9,20,0.6)] transition-all duration-300">
+                <div className="aspect-video bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] flex items-center justify-center relative">
+                  <div className="text-8xl">{hobby.icon}</div>
+                  <div className="absolute top-2 right-2 px-2 py-1 bg-[#E50914] text-white font-bold text-xs rounded">
+                    {hobby.category.toUpperCase()}
+                  </div>
+                </div>
+                <div className="bg-[#141414] p-3">
+                  <h3 className="text-sm font-bold text-white mb-1 truncate">
+                    {hobby.name}
+                  </h3>
+                  <p className="text-xs text-[#B3B3B3] line-clamp-2">
+                    {hobby.description}
+                  </p>
                 </div>
               </div>
             </motion.div>
