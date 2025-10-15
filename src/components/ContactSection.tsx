@@ -53,10 +53,32 @@ export default function ContactSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="p-8 bg-[#2a2a2a] rounded-lg hover:bg-[#E50914] transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(229,9,20,0.6)]"
+              whileHover={{ 
+                scale: 1.08,
+                rotate: [0, -2, 2, 0],
+                transition: { duration: 0.4 }
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="p-8 bg-[#2a2a2a] rounded-lg hover:bg-[#E50914] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(229,9,20,0.7)] relative overflow-hidden group"
             >
-              <method.icon className="w-12 h-12 mx-auto mb-3 text-white" />
+              <motion.div
+                whileHover={{
+                  scale: 1.3,
+                  rotate: [0, 15, -15, 0],
+                  transition: { duration: 0.6 }
+                }}
+              >
+                <method.icon className="w-12 h-12 mx-auto mb-3 text-white" />
+              </motion.div>
+              {/* Shine effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: "-100%" }}
+                whileHover={{ 
+                  x: "100%",
+                  transition: { duration: 0.6, ease: "easeInOut" }
+                }}
+              />
               <p className="text-center font-semibold text-white text-sm">
                 {method.label.toUpperCase()}
               </p>

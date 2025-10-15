@@ -76,17 +76,41 @@ export default function AboutSection() {
             { icon: Linkedin, label: "LinkedIn", link: "https://linkedin.com" },
             { icon: Mail, label: "Email", link: "mailto:santhosh@example.com" },
             { icon: Instagram, label: "Instagram", link: "https://instagram.com" },
-          ].map((social) => (
+          ].map((social, index) => (
             <motion.a
               key={social.label}
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + index * 0.1 }}
+              whileHover={{ 
+                scale: 1.08,
+                rotate: [0, -3, 3, 0],
+                transition: { duration: 0.4 }
+              }}
               whileTap={{ scale: 0.95 }}
-              className="p-6 bg-[#2a2a2a] rounded-lg hover:bg-[#E50914] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(229,9,20,0.5)]"
+              className="p-6 bg-[#2a2a2a] rounded-lg hover:bg-[#E50914] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(229,9,20,0.7)] relative overflow-hidden group"
             >
-              <social.icon className="w-12 h-12 mx-auto mb-3 text-white" />
+              <motion.div
+                whileHover={{
+                  scale: 1.2,
+                  rotate: [0, 10, -10, 0],
+                  transition: { duration: 0.5 }
+                }}
+              >
+                <social.icon className="w-12 h-12 mx-auto mb-3 text-white" />
+              </motion.div>
+              {/* Shine effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: "-100%" }}
+                whileHover={{ 
+                  x: "100%",
+                  transition: { duration: 0.6, ease: "easeInOut" }
+                }}
+              />
               <p className="text-center font-semibold text-white text-lg">
                 {social.label.toUpperCase()}
               </p>
