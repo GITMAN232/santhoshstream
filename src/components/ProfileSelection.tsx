@@ -80,30 +80,6 @@ export default function ProfileSelection({ onEnter }: ProfileSelectionProps) {
             </motion.div>
           </motion.div>
           
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileHover={{ 
-              opacity: 1, 
-              scale: 1,
-              transition: { duration: 0.2 }
-            }}
-            className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-md backdrop-blur-sm"
-          >
-            <motion.div
-              initial={{ scale: 0.8 }}
-              whileHover={{ 
-                scale: [1, 1.2, 1],
-                transition: { 
-                  duration: 0.6,
-                  repeat: Infinity,
-                  repeatDelay: 0.5
-                }
-              }}
-            >
-              <Play className="w-12 h-12 text-white fill-white drop-shadow-lg" />
-            </motion.div>
-          </motion.div>
-
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
