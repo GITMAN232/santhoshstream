@@ -1,12 +1,19 @@
 import { motion } from "framer-motion";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { ExternalLink, Github, Loader2 } from "lucide-react";
+import { ExternalLink, Github, Loader2, X } from "lucide-react";
 import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 export default function ProjectsSection() {
   const projects = useQuery(api.portfolio.getProjects);
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
   if (!projects) {
     return (
@@ -15,6 +22,8 @@ export default function ProjectsSection() {
       </div>
     );
   }
+
+  const currentProject = projects.find((p) => p._id === selectedProject);
 
   return (
     <section className="min-h-screen pt-24 pb-12 px-4">
@@ -36,9 +45,8 @@ export default function ProjectsSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15 }}
               whileHover={{ scale: 1.05 }}
-              onHoverStart={() => setHoveredProject(project._id)}
-              onHoverEnd={() => setHoveredProject(null)}
-              className="netflix-card relative w-80 rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(229,9,20,0.6)] transition-all duration-300"
+              onClick={() => setSelectedProject(project._id)}
+              className="netflix-card relative w-80 rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(229,9,20,0.6)] transition-all duration-300 cursor-pointer"
             >
               <div className="aspect-video overflow-hidden bg-[#2a2a2a]">
                 <img
@@ -47,53 +55,6 @@ export default function ProjectsSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: hoveredProject === project._id ? 1 : 0 }}
-                className="absolute inset-0 bg-black/95 flex flex-col justify-center p-6"
-              >
-                <h3 className="text-2xl font-bold text-[#E50914] mb-3">
-                  {project.title.toUpperCase()}
-                </h3>
-                <p className="text-white text-sm mb-4 line-clamp-3">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tools.map((tool) => (
-                    <span
-                      key={tool}
-                      className="px-2 py-1 bg-[#2a2a2a] text-[#B3B3B3] font-semibold text-xs rounded"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-3">
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-[#E50914] text-white font-semibold text-sm rounded hover:bg-[#ff0a16] transition-colors"
-                    >
-                      <ExternalLink size={16} />
-                      LIVE
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-white text-black font-semibold text-sm rounded hover:bg-gray-200 transition-colors"
-                    >
-                      <Github size={16} />
-                      CODE
-                    </a>
-                  )}
-                </div>
-              </motion.div>
 
               <div className="p-4 bg-[#2a2a2a]">
                 <h3 className="text-lg font-bold text-white">
@@ -104,6 +65,93 @@ export default function ProjectsSection() {
           ))}
         </div>
       </div>
+
+      {/* Project Details Modal */}
+      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+        <DialogContent className="max-w-4xl bg-[#141414] border-[#2a2a2a] text-white p-0 overflow-hidden">
+          {currentProject && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Project Image */}
+              <div className="relative aspect-video overflow-hidden bg-[#2a2a2a]">
+                <img
+                  src={currentProject.image}
+                  alt={currentProject.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent" />
+                
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#141414] hover:bg-[#2a2a2a] flex items-center justify-center transition-colors"
+                >
+                  <X className="w-6 h-6 text-white" />
+                </button>
+              </div>
+
+              {/* Project Details */}
+              <div className="p-8">
+                <DialogHeader className="mb-6">
+                  <DialogTitle className="text-3xl font-bold text-[#E50914] mb-2">
+                    {currentProject.title.toUpperCase()}
+                  </DialogTitle>
+                  <DialogDescription className="text-[#B3B3B3] text-lg leading-relaxed">
+                    {currentProject.description}
+                  </DialogDescription>
+                </DialogHeader>
+
+                {/* Tools Used */}
+                <div className="mb-6">
+                  <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
+                    Technologies Used
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {currentProject.tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className="px-3 py-1 bg-[#2a2a2a] text-[#B3B3B3] font-semibold text-sm rounded-full"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-4">
+                  {currentProject.link && (
+                    <a
+                      href={currentProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-6 py-3 bg-[#E50914] text-white font-semibold rounded hover:bg-[#ff0a16] transition-colors"
+                    >
+                      <ExternalLink size={18} />
+                      VIEW LIVE DEMO
+                    </a>
+                  )}
+                  {currentProject.github && (
+                    <a
+                      href={currentProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors"
+                    >
+                      <Github size={18} />
+                      VIEW CODE
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
