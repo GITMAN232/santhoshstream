@@ -19,8 +19,6 @@ export default function Landing() {
         return <AboutSection />;
       case "Skills":
         return <SkillsSection />;
-      case "Designs":
-        return <DesignsSection />;
       case "Hobbies":
         return <HobbiesSection />;
       case "Projects":

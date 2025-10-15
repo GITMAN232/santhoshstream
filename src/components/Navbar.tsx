@@ -10,7 +10,7 @@ interface NavbarProps {
 export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const sections = ["About", "Skills", "Designs", "Hobbies", "Projects", "Contact"];
+  const sections = ["About", "Skills", "Hobbies", "Projects", "Contact"];
 
   return (
     <motion.nav
