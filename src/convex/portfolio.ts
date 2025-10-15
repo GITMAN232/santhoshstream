@@ -1,0 +1,61 @@
+import { v } from "convex/values";
+import { query, mutation } from "./_generated/server";
+
+export const getProjects = query({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.db.query("projects").collect();
+  },
+});
+
+export const getSkills = query({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.db.query("skills").collect();
+  },
+});
+
+export const getHobbies = query({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.db.query("hobbies").collect();
+  },
+});
+
+export const addProject = mutation({
+  args: {
+    title: v.string(),
+    description: v.string(),
+    image: v.string(),
+    tools: v.array(v.string()),
+    link: v.optional(v.string()),
+    github: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.insert("projects", args);
+  },
+});
+
+export const addSkill = mutation({
+  args: {
+    name: v.string(),
+    category: v.string(),
+    rating: v.number(),
+    icon: v.string(),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.insert("skills", args);
+  },
+});
+
+export const addHobby = mutation({
+  args: {
+    name: v.string(),
+    description: v.string(),
+    icon: v.string(),
+    category: v.string(),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.insert("hobbies", args);
+  },
+});

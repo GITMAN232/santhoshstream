@@ -32,12 +32,28 @@ const schema = defineSchema(
       role: v.optional(roleValidator), // role of the user. do not remove
     }).index("email", ["email"]), // index for the email. do not remove or modify
 
-    // add other tables here
+    projects: defineTable({
+      title: v.string(),
+      description: v.string(),
+      image: v.string(),
+      tools: v.array(v.string()),
+      link: v.optional(v.string()),
+      github: v.optional(v.string()),
+    }),
 
-    // tableName: defineTable({
-    //   ...
-    //   // table fields
-    // }).index("by_field", ["field"])
+    skills: defineTable({
+      name: v.string(),
+      category: v.string(),
+      rating: v.number(),
+      icon: v.string(),
+    }).index("by_category", ["category"]),
+
+    hobbies: defineTable({
+      name: v.string(),
+      description: v.string(),
+      icon: v.string(),
+      category: v.string(),
+    }).index("by_category", ["category"]),
   },
   {
     schemaValidation: false,
