@@ -25,8 +25,8 @@ export default function ProfileSelection({ onEnter }: ProfileSelectionProps) {
         initial={{ y: -80, opacity: 0, scale: 0.9 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ 
-          delay: 0.3,
-          duration: 0.8,
+          delay: 0.4,
+          duration: 0.7,
           ease: [0.43, 0.13, 0.23, 0.96]
         }}
         className="text-4xl md:text-6xl font-normal text-white mb-16 relative z-10"
@@ -40,11 +40,12 @@ export default function ProfileSelection({ onEnter }: ProfileSelectionProps) {
           initial={{ scale: 0.3, opacity: 0, y: 50 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           transition={{ 
-            delay: 0.5,
-            duration: 0.7,
+            delay: 0.7,
+            duration: 0.6,
             ease: [0.34, 1.56, 0.64, 1],
             type: "spring",
-            stiffness: 100
+            stiffness: 120,
+            damping: 12
           }}
           whileHover={{ 
             scale: 1.15,
@@ -100,7 +101,7 @@ export default function ProfileSelection({ onEnter }: ProfileSelectionProps) {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
+            transition={{ delay: 1.0, duration: 0.4 }}
             className="text-center mt-4 text-lg md:text-xl text-[#808080] group-hover:text-white transition-colors duration-300"
             style={{ fontFamily: "'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" }}
           >
@@ -113,8 +114,8 @@ export default function ProfileSelection({ onEnter }: ProfileSelectionProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ 
-          delay: 1,
-          duration: 0.6,
+          delay: 1.2,
+          duration: 0.5,
           ease: "easeOut"
         }}
         whileHover={{ 
