@@ -64,13 +64,17 @@ export default function ProfileSelection({ onEnter }: ProfileSelectionProps) {
             }}
           >
             <motion.div 
-              className="w-full h-full flex items-center justify-center text-7xl md:text-8xl"
+              className="w-full h-full flex items-center justify-center p-4"
               whileHover={{ 
                 scale: 1.1,
                 transition: { duration: 0.3 }
               }}
             >
-              🎬
+              <img 
+                src="https://harmless-tapir-303.convex.cloud/api/storage/1500b50a-c394-4590-82df-e7e436850076" 
+                alt="Profile Avatar"
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </motion.div>
           
