@@ -44,73 +44,73 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* CHANGE VALUES FOR THEME - Neo Brutalism Netflix Style */
+/* NETFLIX MINIMAL THEME */
 :root {
   --radius: 0.25rem;
   --background: oklch(0.145 0 0);
   --foreground: oklch(1 0 0);
-  --card: oklch(0.205 0 0);
+  --card: oklch(0.18 0 0);
   --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.205 0 0);
+  --popover: oklch(0.18 0 0);
   --popover-foreground: oklch(1 0 0);
   --primary: oklch(0.577 0.245 27.325);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.269 0 0);
+  --secondary: oklch(0.22 0 0);
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: oklch(0.22 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: oklch(0.22 0 0);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0 0 0);
-  --input: oklch(0.269 0 0);
+  --border: oklch(0.25 0 0);
+  --input: oklch(0.22 0 0);
   --ring: oklch(0.577 0.245 27.325);
   --chart-1: oklch(0.577 0.245 27.325);
   --chart-2: oklch(0.7 0.3 330);
   --chart-3: oklch(0.6 0.25 150);
   --chart-4: oklch(0.65 0.28 210);
   --chart-5: oklch(0.75 0.22 90);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: oklch(0.18 0 0);
   --sidebar-foreground: oklch(1 0 0);
   --sidebar-primary: oklch(0.577 0.245 27.325);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: oklch(0.22 0 0);
   --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0 0 0);
+  --sidebar-border: oklch(0.25 0 0);
   --sidebar-ring: oklch(0.577 0.245 27.325);
 }
 
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(1 0 0);
-  --card: oklch(0.205 0 0);
+  --card: oklch(0.18 0 0);
   --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.205 0 0);
+  --popover: oklch(0.18 0 0);
   --popover-foreground: oklch(1 0 0);
   --primary: oklch(0.577 0.245 27.325);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.269 0 0);
+  --secondary: oklch(0.22 0 0);
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: oklch(0.22 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: oklch(0.22 0 0);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0 0 0);
-  --input: oklch(0.269 0 0);
+  --border: oklch(0.25 0 0);
+  --input: oklch(0.22 0 0);
   --ring: oklch(0.577 0.245 27.325);
   --chart-1: oklch(0.577 0.245 27.325);
   --chart-2: oklch(0.7 0.3 330);
   --chart-3: oklch(0.6 0.25 150);
   --chart-4: oklch(0.65 0.28 210);
   --chart-5: oklch(0.75 0.22 90);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: oklch(0.18 0 0);
   --sidebar-foreground: oklch(1 0 0);
   --sidebar-primary: oklch(0.577 0.245 27.325);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: oklch(0.22 0 0);
   --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0 0 0);
+  --sidebar-border: oklch(0.25 0 0);
   --sidebar-ring: oklch(0.577 0.245 27.325);
 }
 
@@ -126,4 +126,38 @@
   [role="button"]:not([disabled]) {
     cursor: pointer;
   }
+}
+
+/* Netflix Carousel Styles */
+.netflix-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.netflix-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.netflix-carousel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.netflix-carousel::-webkit-scrollbar-thumb {
+  background: #E50914;
+  border-radius: 4px;
+}
+
+.netflix-carousel::-webkit-scrollbar-thumb:hover {
+  background: #ff0a16;
+}
+
+.netflix-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
 }

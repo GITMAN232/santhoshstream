@@ -31,7 +31,7 @@ export default function ProfileSelection({ onEnter }: ProfileSelectionProps) {
         className="relative cursor-pointer group"
         onClick={onEnter}
       >
-        <div className="w-40 h-40 md:w-52 md:h-52 bg-gradient-to-br from-[#FF0080] to-[#E50914] border-4 border-black rounded-lg overflow-hidden shadow-[8px_8px_0px_#000000] transition-all duration-300 group-hover:shadow-[12px_12px_0px_#000000]">
+        <div className="w-40 h-40 md:w-52 md:h-52 bg-gradient-to-br from-[#E50914] to-[#B20710] rounded-lg overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(229,9,20,0.6)]">
           <div className="w-full h-full flex items-center justify-center text-8xl">
             🎬
           </div>
@@ -40,7 +40,7 @@ export default function ProfileSelection({ onEnter }: ProfileSelectionProps) {
         <motion.div
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
-          className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-lg border-4 border-black"
+          className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-lg"
         >
           <Play className="w-16 h-16 text-white fill-white" />
         </motion.div>
@@ -49,7 +49,7 @@ export default function ProfileSelection({ onEnter }: ProfileSelectionProps) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-center mt-6 text-2xl font-bold text-[#00FF80] tracking-tight"
+          className="text-center mt-6 text-2xl font-bold text-[#E50914] tracking-tight"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
           SANTHOSH

@@ -44,22 +44,22 @@ export default function Landing() {
             
             <motion.main
               key={activeSection}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
             >
               {renderSection()}
             </motion.main>
 
             {/* Footer */}
-            <footer className="bg-[#141414] border-t-4 border-black py-8 px-4">
+            <footer className="bg-[#141414] border-t border-[#2a2a2a] py-8 px-4">
               <div className="max-w-6xl mx-auto text-center">
-                <p className="text-[#B3B3B3] text-lg mb-2">
+                <p className="text-[#B3B3B3] text-sm mb-2">
                   © 2025 SanthoshFlix. All Rights Reserved.
                 </p>
-                <p className="text-[#00FF80] font-bold text-xl">
-                  Where Creativity Streams Nonstop. Press Play ▶️
+                <p className="text-[#E50914] font-semibold text-lg">
+                  Stream Your Creativity
                 </p>
               </div>
             </footer>

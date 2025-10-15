@@ -16,35 +16,37 @@ export default function HobbiesSection() {
 
   return (
     <section className="min-h-screen pt-24 pb-12 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-4xl md:text-6xl font-bold text-white mb-12 tracking-tight"
+          className="text-3xl md:text-5xl font-bold text-white mb-8 px-4"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
-          THINGS I LOVE DOING 🎯
+          Continue Watching
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="netflix-carousel px-4">
           {hobbies.map((hobby, index) => (
             <motion.div
               key={hobby._id}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              className="bg-[#FF0080] border-4 border-black p-8 shadow-[8px_8px_0px_#000000] hover:shadow-[12px_12px_0px_#000000] transition-all"
+              whileHover={{ scale: 1.08 }}
+              className="netflix-card w-64 bg-[#2a2a2a] rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_25px_rgba(229,9,20,0.6)] transition-all duration-300"
             >
-              <div className="text-6xl mb-4">{hobby.icon}</div>
-              <h3 className="text-2xl font-bold text-white mb-3">
-                {hobby.name.toUpperCase()}
-              </h3>
-              <p className="text-white text-lg leading-relaxed">
-                {hobby.description}
-              </p>
-              <div className="mt-4 inline-block px-3 py-1 bg-black text-[#00FF80] font-bold text-sm border-2 border-[#00FF80]">
-                {hobby.category.toUpperCase()}
+              <div className="p-8">
+                <div className="text-7xl mb-4 text-center">{hobby.icon}</div>
+                <h3 className="text-xl font-bold text-white mb-3 text-center">
+                  {hobby.name.toUpperCase()}
+                </h3>
+                <p className="text-[#B3B3B3] text-sm leading-relaxed text-center mb-4">
+                  {hobby.description}
+                </p>
+                <div className="inline-block px-3 py-1 bg-[#E50914] text-white font-semibold text-xs rounded">
+                  {hobby.category.toUpperCase()}
+                </div>
               </div>
             </motion.div>
           ))}
