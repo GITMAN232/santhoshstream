@@ -14,13 +14,36 @@ export default function AboutSection() {
           
           <div className="relative flex flex-col md:flex-row items-center gap-8 p-8 md:p-16">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="w-48 h-48 rounded-full bg-gradient-to-br from-[#E50914] to-[#B20710] flex items-center justify-center overflow-hidden shadow-[0_0_40px_rgba(229,9,20,0.4)] transition-all duration-300"
+              whileHover={{ 
+                scale: 1.08,
+                rotate: [0, -2, 2, -2, 0],
+                transition: { duration: 0.6 }
+              }}
+              className="w-48 h-48 rounded-full bg-gradient-to-br from-[#E50914] via-[#ff1744] to-[#B20710] flex items-center justify-center overflow-hidden shadow-[0_0_50px_rgba(229,9,20,0.5),0_0_100px_rgba(0,255,255,0.3)] transition-all duration-300 border-4 border-[#00ffff]/30 hover:border-[#00ffff] relative"
+              style={{
+                filter: "drop-shadow(0 0 15px rgba(0, 255, 255, 0.4))"
+              }}
             >
               <img 
                 src="https://harmless-tapir-303.convex.cloud/api/storage/f2395d5d-c930-4510-a25e-eb50ed7336ca" 
                 alt="Santhosh Avatar"
                 className="w-full h-full object-cover"
+                style={{
+                  filter: "contrast(1.1) saturate(1.2)"
+                }}
+              />
+              {/* Anime-style glow overlay */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#00ffff]/10 to-transparent"
+                animate={{
+                  opacity: [0.3, 0.6, 0.3],
+                  rotate: [0, 360]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
               />
             </motion.div>
 

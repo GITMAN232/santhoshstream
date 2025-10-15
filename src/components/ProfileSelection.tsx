@@ -56,10 +56,12 @@ export default function ProfileSelection({ onEnter }: ProfileSelectionProps) {
           onClick={onEnter}
         >
           <motion.div 
-            className="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-[#E50914] to-[#B20710] rounded-md overflow-hidden border-4 border-transparent group-hover:border-white transition-all duration-300"
+            className="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-[#E50914] via-[#ff1744] to-[#B20710] rounded-md overflow-hidden border-4 border-transparent group-hover:border-[#00ffff] transition-all duration-300 shadow-[0_0_20px_rgba(229,9,20,0.3)]"
             whileHover={{ 
-              boxShadow: "0 0 40px rgba(229, 9, 20, 0.8), 0 0 80px rgba(229, 9, 20, 0.4)",
-              rotate: [0, -2, 2, 0],
+              boxShadow: "0 0 50px rgba(0, 255, 255, 0.8), 0 0 100px rgba(229, 9, 20, 0.6), inset 0 0 30px rgba(255, 255, 255, 0.2)",
+              rotate: [0, -3, 3, 0],
+              scale: 1.05,
+              borderColor: "#00ffff",
               transition: { duration: 0.5 }
             }}
           >
