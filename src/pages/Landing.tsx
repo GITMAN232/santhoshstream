@@ -7,6 +7,7 @@ import SkillsSection from "@/components/SkillsSection";
 import HobbiesSection from "@/components/HobbiesSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
+import DesignsSection from "@/components/DesignsSection";
 
 export default function Landing() {
   const [hasEntered, setHasEntered] = useState(false);
@@ -18,6 +19,8 @@ export default function Landing() {
         return <AboutSection />;
       case "Skills":
         return <SkillsSection />;
+      case "Designs":
+        return <DesignsSection />;
       case "Hobbies":
         return <HobbiesSection />;
       case "Projects":
@@ -77,11 +80,8 @@ export default function Landing() {
             {/* Footer */}
             <footer className="bg-[#141414] border-t border-[#2a2a2a] py-8 px-4">
               <div className="max-w-6xl mx-auto text-center">
-                <p className="text-[#B3B3B3] text-sm mb-2">
-                  © 2025 SanthoshFlix. All Rights Reserved.
-                </p>
-                <p className="text-[#E50914] font-semibold text-lg">
-                  Stream Your Creativity
+                <p className="text-white text-sm">
+                  © 2025 SanthoshFlix | Stream Your Creativity
                 </p>
               </div>
             </footer>

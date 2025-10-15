@@ -32,7 +32,7 @@ export default function ContactSection() {
         <motion.h2
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-3xl md:text-5xl font-bold text-white mb-8"
+          className="text-3xl md:text-5xl font-bold text-white mb-8 px-4"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
           More Like This

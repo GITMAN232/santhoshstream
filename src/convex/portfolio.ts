@@ -22,6 +22,13 @@ export const getHobbies = query({
   },
 });
 
+export const getDesigns = query({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.db.query("designs").collect();
+  },
+});
+
 export const addProject = mutation({
   args: {
     title: v.string(),
@@ -57,5 +64,17 @@ export const addHobby = mutation({
   },
   handler: async (ctx, args) => {
     return await ctx.db.insert("hobbies", args);
+  },
+});
+
+export const addDesign = mutation({
+  args: {
+    title: v.string(),
+    caption: v.string(),
+    image: v.string(),
+    category: v.string(),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.insert("designs", args);
   },
 });

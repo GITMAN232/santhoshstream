@@ -54,6 +54,13 @@ const schema = defineSchema(
       icon: v.string(),
       category: v.string(),
     }).index("by_category", ["category"]),
+
+    designs: defineTable({
+      title: v.string(),
+      caption: v.string(),
+      image: v.string(),
+      category: v.string(), // "poster" or "logo"
+    }).index("by_category", ["category"]),
   },
   {
     schemaValidation: false,

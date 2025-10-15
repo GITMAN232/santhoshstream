@@ -35,9 +35,7 @@ export default function AboutSection() {
                 Engineer. Designer. Dreamer.
               </p>
               <p className="text-lg md:text-xl leading-relaxed text-[#B3B3B3]">
-                Welcome to my universe! I'm a passionate developer who loves building
-                amazing digital experiences. When I'm not coding, you'll find me
-                watching anime, biking through trails, or designing unforgettable events.
+                Welcome to my universe! I'm a passionate front-end developer and graphic designer who loves crafting stunning visuals and digital experiences. When I'm not coding, I'm designing posters, logos, and event visuals that tell a story.
               </p>
             </div>
           </div>
