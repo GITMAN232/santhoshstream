@@ -30,7 +30,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
               className="text-3xl md:text-4xl font-bold text-[#E50914] tracking-tight"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              SANTHOSHFLIX
+              SANTHOSH
             </span>
           </motion.div>
 

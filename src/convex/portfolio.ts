@@ -106,3 +106,28 @@ export const updateMultipleSkills = mutation({
     }
   },
 });
+
+export const deleteProject = mutation({
+  args: {
+    id: v.id("projects"),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.delete(args.id);
+  },
+});
+
+export const updateProject = mutation({
+  args: {
+    id: v.id("projects"),
+    title: v.optional(v.string()),
+    description: v.optional(v.string()),
+    image: v.optional(v.string()),
+    tools: v.optional(v.array(v.string())),
+    link: v.optional(v.string()),
+    github: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    const { id, ...updates } = args;
+    return await ctx.db.patch(id, updates);
+  },
+});
