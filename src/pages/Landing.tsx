@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProfileSelection from "@/components/ProfileSelection";
 import Navbar from "@/components/Navbar";
@@ -12,6 +12,15 @@ import DesignsSection from "@/components/DesignsSection";
 export default function Landing() {
   const [hasEntered, setHasEntered] = useState(false);
   const [activeSection, setActiveSection] = useState("About");
+  const mainRef = useRef<HTMLDivElement>(null);
+
+  const handleNavigate = (section: string) => {
+    setActiveSection(section);
+    // Smooth scroll to top of main content area
+    if (mainRef.current) {
+      mainRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   const renderSection = () => {
     switch (activeSection) {
@@ -63,9 +72,10 @@ export default function Landing() {
             }}
             exit={{ opacity: 0 }}
           >
-            <Navbar activeSection={activeSection} onNavigate={setActiveSection} />
+            <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
             
             <motion.main
+              ref={mainRef}
               key={activeSection}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
