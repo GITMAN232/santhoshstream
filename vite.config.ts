@@ -13,5 +13,32 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 1600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom", "react-router"],
+          "vendor-ui": [
+            "@radix-ui/react-accordion",
+            "@radix-ui/react-alert-dialog",
+            "@radix-ui/react-avatar",
+            "@radix-ui/react-checkbox",
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-label",
+            "@radix-ui/react-popover",
+            "@radix-ui/react-select",
+            "@radix-ui/react-separator",
+            "@radix-ui/react-slot",
+            "@radix-ui/react-tabs",
+            "@radix-ui/react-tooltip",
+          ],
+          "vendor-motion": ["framer-motion"],
+          "vendor-three": ["three", "@react-three/fiber", "@react-three/drei"],
+          "vendor-charts": ["recharts"],
+          "vendor-forms": ["react-hook-form", "@hookform/resolvers", "zod"],
+          "vendor-misc": ["date-fns", "axios", "sonner", "clsx", "class-variance-authority", "tailwind-merge"],
+        },
+      },
+    },
   },
 });
