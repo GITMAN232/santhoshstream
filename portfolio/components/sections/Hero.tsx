@@ -50,14 +50,14 @@ const floatingOrbs = [
   { size: 250, x: "5%", y: "70%", color: "#f472b6", delay: 1 },
 ];
 
-const stagger = {
+const stagger: any = {
   container: {
     hidden: {},
     show: { transition: { staggerChildren: 0.15 } },
   },
   item: {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   },
 };
 
